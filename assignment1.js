@@ -15,17 +15,24 @@ serverResponse = ["Welcome to WEB700 Assignment 1", "This assignment was prepare
 // creating our http request as an arrow function :) (tried smth else lol)
 
 // using const coz we wont be reassigning them. httpverb and path are just parameters for serververbs and serverpaths.
-const httpRequest = (httpverb, path) => {
-    for (let i = 0; i < serverpaths.length; i++) {
-        if(serverVerbs[i] === httpverb && serverPaths[i] === paths ) {
+const httpRequest = (httpVerb, path) => {
+    for (let i = 0; i < serverPaths.length; i++) {
+        if(serverVerbs[i] === httpVerb && serverPaths[i] === path ) {
             return `200: ${serverResponse[i]}`;
         }
     }
 
-    return `404: unable to process ${httpverb} request for ${path}`; // ` is a template literal allowing us to embed expression inside ${} string
+    return `404: unable to process ${httpVerb} request for ${path}`; // ` is a template literal allowing us to embed expression inside ${} string
 }
 
 // testing our function 
 
+console.log(httpRequest("GET", "/")); // should return 200: Welcome to WEB700 Assignment 1
+console.log(httpRequest("GET", "/about")); // 200: This assignment was prepared by aashish suwal
+console.log(httpRequest("GET", "/contact")); // 200: aashish suwal: asuwal@myseneca.ca
+console.log(httpRequest("POST", "/login")); // 200: User Logged In
+console.log(httpRequest("GET", "/panel")); // 200: Main Panel
+console.log(httpRequest("POST", "/logout")); // 200: Logout Complete
+console.log(httpRequest("PUT", "/")); // 404: Unable to process PUT request for 
 
 
