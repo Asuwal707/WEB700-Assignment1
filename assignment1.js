@@ -35,4 +35,29 @@ console.log(httpRequest("GET", "/panel")); // 200: Main Panel
 console.log(httpRequest("POST", "/logout")); // 200: Logout Complete
 console.log(httpRequest("PUT", "/")); // 404: Unable to process PUT request for 
 
+// a function to generate random numb between 0 and specified maximum (will be copying the code from link provided)
 
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
+
+// automating out test function .
+function automateTests() 
+{           //defining out testverbs and testpaths
+    let testVerbs = ["GET", "POST"];
+    let testPaths = ["/", "/about", "/contact", "/login", "/panel", "/logout", "/randomPath1", "/randomPath2"];
+
+    // this is out function randomRequest which generates random http requests and logs it into httprequest
+    function randomRequest() {
+        let randVerb = testVerbs[getRandomInt(testVerbs.length)];
+        let randPath = testPaths[getRandomInt(testPaths.length)];
+        console.log(httpRequest(randVerb, randPath)); 
+    }
+
+    setInterval(randomRequest, 1000);  // 1 second interval
+}
+
+automateTests(); // starts the automation  :D 
+
+  
+ 
