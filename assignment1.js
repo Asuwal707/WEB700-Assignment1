@@ -35,7 +35,7 @@ console.log(httpRequest("GET", "/panel")); // 200: Main Panel
 console.log(httpRequest("POST", "/logout")); // 200: Logout Complete
 console.log(httpRequest("PUT", "/")); // 404: Unable to process PUT request for 
 
-// a function to generate random numb between 0 and specified maximum (will be copying the code from link provided)
+// a function to generate random numb between 0 and specified maximum (will be implementing the code from link provided)
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
